@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export default function AboutPage() {
 
     const phoneNumber = import.meta.env.VITE_CONTACT_NUMBER;
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
     const companyEmail = import.meta.env.VITE_COMPANY_EMAIL;
 
     return (
@@ -254,7 +255,8 @@ export default function AboutPage() {
                                 <Phone className="w-7 h-7 text-white" />
                             </div>
                             <h4 className="font-black text-base sm:text-lg text-gray-900 mb-2">Call Us</h4>
-                            <p className="text-sm sm:text-base text-amber-700 font-bold">+{phoneNumber}</p>
+                            <p className="text-sm sm:text-base text-amber-700 font-bold">+{phoneNumber},</p>
+                            <p className="text-sm sm:text-base text-amber-700 font-bold">+{whatsappNumber}</p>
                         </div>
 
                         <div className="p-7 sm:p-8 bg-white rounded-2xl shadow-lg border-2 border-amber-200 hover:shadow-xl transition-all hover:border-amber-300 text-center">

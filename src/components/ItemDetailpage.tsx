@@ -51,7 +51,7 @@ export default function ProductDetailPage() {
     const handleWhatsAppInquiry = () => {
         if (!selectedProduct) return;
 
-        const phoneNumber = '+971545613397';
+        const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
         const subtotal = formatPrice(selectedProduct.price * quantity);
 
         const message = `السلام عليكم,

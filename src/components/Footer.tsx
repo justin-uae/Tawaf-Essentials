@@ -11,6 +11,7 @@ export default function Footer() {
   ];
 
   const phoneNumber = import.meta.env.VITE_CONTACT_NUMBER;
+  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
   const companyEmail = import.meta.env.VITE_COMPANY_EMAIL;
   const appURL = import.meta.env.VITE_APP_URL;
 
@@ -55,7 +56,10 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-white flex-shrink-0" />
                 </div>
                 <a href={`tel:+${phoneNumber}`} className="text-sm hover:text-amber-400 transition-colors font-medium">
-                  +{phoneNumber}
+                  +{phoneNumber},
+                </a>
+                <a href={`tel:+${phoneNumber}`} className="text-sm hover:text-amber-400 transition-colors font-medium">
+                  +{whatsappNumber}
                 </a>
               </div>
               <div className="flex items-center gap-2 group">

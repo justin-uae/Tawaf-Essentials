@@ -13,6 +13,7 @@ function ContactForm() {
     });
 
     const phoneNumber = import.meta.env.VITE_CONTACT_NUMBER;
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
     const companyEmail = import.meta.env.VITE_COMPANY_EMAIL;
     const appURL = import.meta.env.VITE_APP_URL;
 
@@ -236,7 +237,11 @@ function ContactForm() {
                                     <div className="min-w-0">
                                         <h3 className="font-black text-base text-gray-900 mb-1">Phone</h3>
                                         <a href={`tel:+${phoneNumber}`} className="text-sm text-amber-700 hover:text-amber-800 transition-colors break-all font-bold">
-                                            +{phoneNumber}
+                                            +{phoneNumber},
+                                        </a>
+                                        <br />
+                                        <a href={`tel:+${phoneNumber}`} className="text-sm text-amber-700 hover:text-amber-800 transition-colors break-all font-bold">
+                                            +{whatsappNumber}
                                         </a>
                                     </div>
                                 </div>

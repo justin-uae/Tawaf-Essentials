@@ -4,8 +4,8 @@ interface WhatsAppButtonProps {
 }
 
 export function WhatsAppButton({
-    phoneNumber = import.meta.env.VITE_CONTACT_NUMBER,
-    message = 'Hello! I would like to inquire about your Dubai safaris.'
+    phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER,
+    message = 'Hello! I would like to inquire about your Umrah Products and services.'
 }: WhatsAppButtonProps) {
 
     const handleClick = () => {

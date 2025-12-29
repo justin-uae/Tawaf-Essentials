@@ -17,7 +17,7 @@ export default function Navbar() {
     }, []);
 
     const handleWhatsAppClick = () => {
-        const phoneNumber = import.meta.env.VITE_CONTACT_NUMBER;
+        const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
         const message = 'Hello! I would like to inquire about your Umrah products and services.';
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
