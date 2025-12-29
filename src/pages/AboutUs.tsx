@@ -223,12 +223,6 @@ export default function AboutPage() {
                                 Shop Now
                                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
                             </Link>
-                            <Link
-                                to="/ebooks"
-                                className="inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-5 bg-transparent border-2 border-amber-400 text-amber-300 rounded-full font-black text-lg sm:text-xl hover:bg-amber-400 hover:text-gray-900 transform hover:scale-105 transition-all"
-                            >
-                                Browse E-Books
-                            </Link>
                         </div>
                     </div>
                 </div>

@@ -230,7 +230,7 @@ const ViewAllProducts = () => {
 };
 
 // Hero Section Component
-const HeroSection = ({ searchQuery, setSearchQuery, totalCount, selectedCategory }: any) => (
+const HeroSection = ({ searchQuery, setSearchQuery, selectedCategory }: any) => (
     <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden py-16 sm:py-20">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -253,7 +253,7 @@ const HeroSection = ({ searchQuery, setSearchQuery, totalCount, selectedCategory
                 )}
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-amber-100 mb-6 sm:mb-8 font-medium drop-shadow-lg max-w-3xl mx-auto">
-                Explore {totalCount}+ authentic Islamic products for your spiritual journey
+                Explore authentic Islamic products for your spiritual journey
             </p>
 
             <div className="max-w-2xl mx-auto w-full">

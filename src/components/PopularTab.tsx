@@ -95,9 +95,9 @@ export default function PopularProducts() {
                                 {/* Image */}
                                 <div className="relative h-52 sm:h-56 md:h-60 lg:h-64 overflow-hidden bg-gradient-to-br from-amber-100 to-yellow-100">
                                     <img
-                                        src={product.images[0] || 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600'}
+                                        src={product.images[0]}
                                         alt={product.title}
-                                        className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                                        className="w-full h-full object-contain object-center group-hover:scale-110 transition-transform duration-500"
                                         loading="lazy"
                                     />
 

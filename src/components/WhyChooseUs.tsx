@@ -170,13 +170,6 @@ export default function WhyChooseUs() {
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
                             </Link>
-
-                            <Link to={'/ebooks'} className="w-full sm:w-auto">
-                                <button className="w-full sm:w-auto bg-transparent border-2 border-amber-400 text-amber-300 hover:bg-amber-400 hover:text-gray-900 font-bold px-8 sm:px-10 py-4 text-base sm:text-lg rounded-full transition-all transform hover:scale-105 flex items-center justify-center gap-2">
-                                    <BookOpen className="w-5 h-5" />
-                                    <span>Browse E-Books</span>
-                                </button>
-                            </Link>
                         </div>
 
                         {/* Arabic calligraphy style decoration */}

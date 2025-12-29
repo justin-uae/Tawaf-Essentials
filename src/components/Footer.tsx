@@ -1,12 +1,12 @@
 import { Mail, Phone, MapPin, BookOpen, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.png'
+import { PaymentIcon } from 'react-svg-credit-card-payment-icons';
 
 export default function Footer() {
   const quickLinks = [
     { name: "About", href: "/about" },
     { name: "Products", href: "/products" },
-    { name: "E-Books", href: "/ebooks" },
     { name: "Contact", href: "/contact" }
   ];
 
@@ -99,7 +99,24 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        <div className="mt-6 flex justify-center items-center gap-3 sm:gap-4">
+          <span className="text-xs sm:text-sm text-gray-400 font-medium">We Accept:</span>
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Visa */}
+            <div className="rounded p-1.5 sm:p-2 shadow-lg hover:scale-105 transition-transform">
+              <PaymentIcon className="w-10 h-6 sm:w-12 sm:h-7" type="Visa" format="flatRounded" />
+            </div>
+            {/* Mastercard */}
+            <div className="rounded p-1.5 sm:p-2 shadow-lg hover:scale-105 transition-transform">
+              <PaymentIcon className="w-10 h-6 sm:w-12 sm:h-7" type="Mastercard" format="flatRounded" />
 
+            </div>
+            <div className="rounded p-1.5 sm:p-2 shadow-lg hover:scale-105 transition-transform">
+              <PaymentIcon className="w-10 h-6 sm:w-12 sm:h-7" type="Americanexpress" format="flatRounded" />
+
+            </div>
+          </div>
+        </div>
         {/* Decorative divider */}
         <div className="flex items-center justify-center gap-4 my-8">
           <div className="w-24 h-0.5 bg-gradient-to-r from-transparent to-amber-500/50"></div>

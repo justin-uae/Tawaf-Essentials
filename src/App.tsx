@@ -13,12 +13,10 @@ const ItemDetailpage = lazy(() => import('./components/ItemDetailpage'));
 const Navbar = lazy(() => import('./components/Navbar'));
 const ContactUsPage = lazy(() => import('./components/ContactUs'));
 const FallbackPage = lazy(() => import('./components/FallBackPage'));
-const BookingsPage = lazy(() => import('./pages/BookingsPage'));
-const CartPage = lazy(() => import('./pages/CartPage'));
+// const CartPage = lazy(() => import('./pages/CartPage'));
 const AboutPage = lazy(() => import('./pages/AboutUs'));
 const ViewAllExcursion = lazy(() => import('./pages/ViewAllExcursion'))
-const EBookPage = lazy(() => import('./pages/EBookPage'))
-const ProtectedRoute = lazy(() => import('./components/ProtectedRoute'));
+// const EBookPage = lazy(() => import('./pages/EBookPage'))
 
 function App() {
   const dispatch = useAppDispatch();
@@ -36,25 +34,12 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<ExcursionsDubaiHero />} />
-          <Route path='/contact' element={<ContactUsPage />} />
-          <Route path='/about' element={<AboutPage />} />
           <Route path='/products' element={<ViewAllExcursion />} />
-          <Route path='/ebooks' element={<EBookPage />} />
           <Route path='/products/:id' element={<ItemDetailpage />} />
-
-          <Route
-            path="/bookings"
-            element={
-              <ProtectedRoute>
-                <BookingsPage />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route path='/tours' element={<FallbackPage />} />
-          <Route path='/cart' element={<CartPage />} />
-          <Route path='/transfers' element={<FallbackPage />} />
-          <Route path='/services' element={<FallbackPage />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/contact' element={<ContactUsPage />} />
+          {/* <Route path='/ebooks' element={<EBookPage />} /> */}
+          {/* <Route path='/cart' element={<CartPage />} /> */}
           <Route path='*' element={<FallbackPage />} />
         </Routes>
         <Footer />
