@@ -52,17 +52,17 @@ export default function Navbar() {
                         {/* Desktop Navigation */}
                         <div className="hidden lg:flex items-center space-x-8">
                             <Link
+                                to="/"
+                                className="text-gray-700 hover:text-emerald-700 font-semibold transition-colors relative group"
+                            >
+                                Home
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-700 to-teal-700 group-hover:w-full transition-all duration-300"></span>
+                            </Link>
+                            <Link
                                 to="/products"
                                 className="text-gray-700 hover:text-emerald-700 font-semibold transition-colors relative group"
                             >
                                 Products
-                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-700 to-teal-700 group-hover:w-full transition-all duration-300"></span>
-                            </Link>
-                            <Link
-                                to="/ebooks"
-                                className="text-gray-700 hover:text-emerald-700 font-semibold transition-colors relative group"
-                            >
-                                E-Book
                                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-700 to-teal-700 group-hover:w-full transition-all duration-300"></span>
                             </Link>
                             <Link

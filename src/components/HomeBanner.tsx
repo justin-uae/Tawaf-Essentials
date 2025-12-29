@@ -217,7 +217,7 @@ export default function HomepageBanner() {
                                                     src={category?.images?.edges?.[0]?.node?.url || category?.image}
                                                     alt={category.title}
                                                     loading='lazy'
-                                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                                                 />
                                             ) : (
                                                 <div className="w-full h-full bg-gradient-to-br from-amber-100 to-yellow-100 flex items-center justify-center">
@@ -227,7 +227,7 @@ export default function HomepageBanner() {
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                                             <div className="absolute inset-0 bg-gradient-to-r from-amber-600/30 to-yellow-600/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
-                                                <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-black mb-2 drop-shadow-2xl line-clamp-2">{category?.category}</h3>
+                                                <h3 className="text-white text-sm sm:text-xl md:text-lg font-black mb-2 drop-shadow-2xl line-clamp-2">{category?.title}</h3>
                                                 <div className="flex items-center gap-2 text-amber-400 text-xs sm:text-sm font-semibold">
                                                     <span>Explore Collection</span>
                                                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

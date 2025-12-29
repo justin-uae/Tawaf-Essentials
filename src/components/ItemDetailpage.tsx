@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { BookOpen, ChevronLeft, ChevronRight, CheckCircle, Check, Sparkles, ChevronUp, ChevronDown, AlertCircle, HelpCircle, Award, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, CheckCircle, Check, Sparkles, ChevronUp, ChevronDown, AlertCircle, HelpCircle, Award, Star } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useAppDispatch, useAppSelector } from '../hooks/useRedux';
 import { fetchProductById } from '../slices/productsSlice';
+import { BiCategory } from 'react-icons/bi';
+
 export default function ProductDetailPage() {
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
@@ -188,7 +190,7 @@ JazakAllah Khair!`;
                                     <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-sm sm:text-base text-gray-600">
                                         {selectedProduct.category && (
                                             <div className="flex items-center gap-2">
-                                                <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 flex-shrink-0" />
+                                                <BiCategory className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 flex-shrink-0" />
                                                 <span className="truncate font-semibold">{selectedProduct.category}</span>
                                             </div>
                                         )}
