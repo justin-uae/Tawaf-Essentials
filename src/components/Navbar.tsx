@@ -109,18 +109,18 @@ export default function Navbar() {
                         <div className="lg:hidden pb-4 border-t border-gray-100">
                             <div className="flex flex-col space-y-1 pt-4">
                                 <Link
+                                    to="/"
+                                    className="text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 font-semibold py-3 px-4 rounded-lg transition-colors"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    Home
+                                </Link>
+                                <Link
                                     to="/products"
                                     className="text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 font-semibold py-3 px-4 rounded-lg transition-colors"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     Products
-                                </Link>
-                                <Link
-                                    to="/ebooks"
-                                    className="text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 font-semibold py-3 px-4 rounded-lg transition-colors"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    E-Books
                                 </Link>
                                 <Link
                                     to="/about"

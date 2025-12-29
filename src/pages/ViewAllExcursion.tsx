@@ -387,15 +387,17 @@ const ProductCard = ({ product, goToDetail, formatPrice }: any) => (
         onClick={() => goToDetail(product.id)}
         className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-amber-200"
     >
-        <div className="relative h-64 overflow-hidden bg-gradient-to-br from-amber-100 to-yellow-100">
-            <img
-                src={product.images[0] || 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600'}
-                alt={product.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
+        <div className="relative h-64 min-h-[16rem] overflow-hidden bg-gradient-to-br from-amber-100 to-yellow-100 flex items-center justify-center p-4">
+            <div className="w-full h-full flex items-center justify-center">
+                <img
+                    src={product.images[0]}
+                    alt={product.title}
+                    className="w-auto h-auto max-w-full max-h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
+                />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-            <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm rounded-xl px-3 py-2 shadow-xl border border-amber-100">
+            <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm rounded-xl px-3 py-2 shadow-xl border border-amber-100 z-10">
                 <div className="flex flex-col">
                     <span className="text-xs text-gray-500 line-through leading-tight">
                         {formatPrice(product.price + 50)}
@@ -407,7 +409,7 @@ const ProductCard = ({ product, goToDetail, formatPrice }: any) => (
             </div>
 
             {product.rating > 0 && (
-                <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm rounded-full px-2.5 py-1.5 shadow-lg border border-amber-100 flex items-center gap-1">
+                <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm rounded-full px-2.5 py-1.5 shadow-lg border border-amber-100 flex items-center gap-1 z-10">
                     <span className="text-yellow-500">⭐</span>
                     <span className="text-sm font-bold text-gray-900">{product.rating.toFixed(1)}</span>
                 </div>
