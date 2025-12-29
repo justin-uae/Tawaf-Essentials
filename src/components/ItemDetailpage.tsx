@@ -21,13 +21,11 @@ export default function ProductDetailPage() {
     // Fetch product on mount
     useEffect(() => {
         if (id) {
-            // Convert numeric ID to Shopify GID format
             const shopifyId = `gid://shopify/Product/${id}`;
             dispatch(fetchProductById(shopifyId));
         }
     }, [id, dispatch]);
 
-    // Reset image index when product changes
     useEffect(() => {
         setCurrentImageIndex(0);
     }, [selectedProduct?.id]);
@@ -87,24 +85,24 @@ JazakAllah Khair!`;
     const subtotal = formatPrice(selectedProduct.price * quantity);
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/10 to-white">
+        <div className="min-h-screen bg-gradient-to-b from-white via-amber-50/10 to-white">
             {/* Breadcrumb */}
-            <div className="border-b border-emerald-100 bg-gradient-to-r from-emerald-50/50 to-teal-50/50">
+            <div className="border-b border-amber-100 bg-gradient-to-r from-amber-50/50 to-yellow-50/50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
                     <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 overflow-x-auto whitespace-nowrap">
-                        <Link to="/" className="hover:text-emerald-700 font-medium transition-colors">Home</Link>
-                        <span className="text-emerald-400">→</span>
-                        <Link to="/products" className="hover:text-emerald-700 font-medium transition-colors">Products</Link>
-                        <span className="text-emerald-400">→</span>
+                        <Link to="/" className="hover:text-amber-700 font-medium transition-colors">Home</Link>
+                        <span className="text-amber-400">→</span>
+                        <Link to="/products" className="hover:text-amber-700 font-medium transition-colors">Products</Link>
+                        <span className="text-amber-400">→</span>
                         {selectedProduct.category && (
                             <>
                                 <Link
                                     to={`/products?category=${selectedProduct.category}`}
-                                    className="hover:text-emerald-700 font-medium transition-colors"
+                                    className="hover:text-amber-700 font-medium transition-colors"
                                 >
                                     {selectedProduct.category}
                                 </Link>
-                                <span className="text-emerald-400">→</span>
+                                <span className="text-amber-400">→</span>
                             </>
                         )}
                         <span className="text-gray-900 font-semibold truncate">{selectedProduct.title}</span>
@@ -119,11 +117,11 @@ JazakAllah Khair!`;
                         {/* Image Gallery */}
                         {selectedProduct.images && selectedProduct.images.length > 0 && (
                             <div className="relative">
-                                <div className="relative aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-100">
+                                <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-100 bg-gradient-to-br from-amber-50 to-yellow-50">
                                     <img
                                         src={selectedProduct.images[currentImageIndex] || 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800'}
                                         alt={selectedProduct.title}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-auto max-h-[500px] sm:max-h-[600px] object-contain mx-auto"
                                     />
 
                                     {selectedProduct.images.length > 1 && (
@@ -133,14 +131,14 @@ JazakAllah Khair!`;
                                                 className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white p-2 sm:p-2.5 rounded-full transition-all shadow-lg hover:scale-110"
                                                 aria-label="Previous image"
                                             >
-                                                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-700" />
+                                                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700" />
                                             </button>
                                             <button
                                                 onClick={nextImage}
                                                 className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white p-2 sm:p-2.5 rounded-full transition-all shadow-lg hover:scale-110"
                                                 aria-label="Next image"
                                             >
-                                                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-700" />
+                                                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700" />
                                             </button>
 
                                             <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 bg-black/70 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold">
@@ -158,14 +156,14 @@ JazakAllah Khair!`;
                                                 key={index}
                                                 onClick={() => setCurrentImageIndex(index)}
                                                 className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden flex-shrink-0 border-2 ${index === currentImageIndex
-                                                    ? 'border-emerald-600 ring-2 ring-emerald-300'
-                                                    : 'border-emerald-200 opacity-60 hover:opacity-100 hover:border-emerald-400'
-                                                    } transition-all`}
+                                                    ? 'border-amber-600 ring-2 ring-amber-300'
+                                                    : 'border-amber-200 opacity-60 hover:opacity-100 hover:border-amber-400'
+                                                    } transition-all bg-gradient-to-br from-amber-50 to-yellow-50`}
                                             >
                                                 <img
                                                     src={image}
                                                     alt={`Thumbnail ${index + 1}`}
-                                                    className="w-full h-full object-cover"
+                                                    className="w-full h-full object-contain p-1"
                                                 />
                                             </button>
                                         ))}
@@ -175,13 +173,13 @@ JazakAllah Khair!`;
                         )}
 
                         {/* Title & Details */}
-                        <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-emerald-100">
+                        <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-amber-100">
                             <div className="flex items-start justify-between mb-4 gap-3">
                                 <div className="flex-1 min-w-0">
                                     {selectedProduct.rating > 4.5 && (
-                                        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-100 to-teal-100 px-3 py-1.5 rounded-full mb-3">
-                                            <Sparkles className="w-4 h-4 text-emerald-700" />
-                                            <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">Bestseller</span>
+                                        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-yellow-100 px-3 py-1.5 rounded-full mb-3">
+                                            <Sparkles className="w-4 h-4 text-amber-700" />
+                                            <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">Bestseller</span>
                                         </div>
                                     )}
                                     <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3 sm:mb-4">
@@ -190,13 +188,13 @@ JazakAllah Khair!`;
                                     <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-sm sm:text-base text-gray-600">
                                         {selectedProduct.category && (
                                             <div className="flex items-center gap-2">
-                                                <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-700 flex-shrink-0" />
+                                                <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 flex-shrink-0" />
                                                 <span className="truncate font-semibold">{selectedProduct.category}</span>
                                             </div>
                                         )}
                                         {selectedProduct.rating > 0 && (
                                             <div className="flex items-center gap-2">
-                                                <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-emerald-500 text-emerald-500 flex-shrink-0" />
+                                                <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-500 text-amber-500 flex-shrink-0" />
                                                 <span className="font-bold text-gray-900">
                                                     {selectedProduct.rating.toFixed(1)}
                                                 </span>
@@ -215,7 +213,7 @@ JazakAllah Khair!`;
                             title="Overview"
                             isOpen={isOverviewOpen}
                             setIsOpen={setIsOverviewOpen}
-                            icon={<span className="w-1.5 h-8 bg-gradient-to-b from-emerald-600 to-teal-600 rounded-full"></span>}
+                            icon={<span className="w-1.5 h-8 bg-gradient-to-b from-amber-600 to-yellow-600 rounded-full"></span>}
                         >
                             {selectedProduct.descriptionHtml ? (
                                 <div
@@ -330,7 +328,7 @@ JazakAllah Khair!`;
                     {/* Right Column - Purchase */}
                     <div className="lg:col-span-1">
                         <div className="sticky top-4 sm:top-8">
-                            <div className="bg-white border-2 border-emerald-200 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                            <div className="bg-white border-2 border-amber-200 rounded-3xl p-6 sm:p-8 shadow-2xl">
                                 {/* Price */}
                                 <div className="mb-6">
                                     {selectedProduct.price && (
@@ -340,7 +338,7 @@ JazakAllah Khair!`;
                                             </span>
                                         </div>
                                     )}
-                                    <div className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-emerald-700 to-teal-700 bg-clip-text text-transparent">
+                                    <div className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">
                                         {formatPrice(selectedProduct.price)}
                                     </div>
                                 </div>
@@ -350,17 +348,17 @@ JazakAllah Khair!`;
                                     <label className="block text-sm font-bold text-gray-900 mb-2">
                                         Quantity
                                     </label>
-                                    <div className="flex items-center border-2 border-emerald-200 rounded-xl overflow-hidden hover:border-emerald-300 transition-colors">
+                                    <div className="flex items-center border-2 border-amber-200 rounded-xl overflow-hidden hover:border-amber-300 transition-colors">
                                         <button
                                             onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                            className="px-4 py-3 hover:bg-emerald-50 transition-colors font-bold text-gray-700"
+                                            className="px-4 py-3 hover:bg-amber-50 transition-colors font-bold text-gray-700"
                                         >
                                             -
                                         </button>
                                         <span className="flex-1 text-center font-bold text-gray-900 text-lg">{quantity}</span>
                                         <button
                                             onClick={() => setQuantity(quantity + 1)}
-                                            className="px-4 py-3 hover:bg-emerald-50 transition-colors font-bold text-gray-700"
+                                            className="px-4 py-3 hover:bg-amber-50 transition-colors font-bold text-gray-700"
                                         >
                                             +
                                         </button>
@@ -368,10 +366,10 @@ JazakAllah Khair!`;
                                 </div>
 
                                 {/* Total */}
-                                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-4 mb-6 border-2 border-emerald-200">
+                                <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 mb-6 border-2 border-amber-200">
                                     <div className="flex items-center justify-between">
                                         <span className="text-lg font-black text-gray-900">Total</span>
-                                        <span className="text-2xl font-black bg-gradient-to-r from-emerald-700 to-teal-700 bg-clip-text text-transparent">
+                                        <span className="text-2xl font-black bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">
                                             {subtotal}
                                         </span>
                                     </div>
@@ -396,16 +394,16 @@ JazakAllah Khair!`;
 
                             {/* Trust Badge */}
                             {selectedProduct.rating > 0 && (
-                                <div className="mt-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border-2 border-emerald-200 shadow-lg">
+                                <div className="mt-6 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 border-2 border-amber-200 shadow-lg">
                                     <div className="text-center">
-                                        <div className="text-4xl font-black bg-gradient-to-r from-emerald-700 to-teal-700 bg-clip-text text-transparent mb-2">
+                                        <div className="text-4xl font-black bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent mb-2">
                                             {selectedProduct.rating.toFixed(1)}/5
                                         </div>
                                         <div className="flex items-center justify-center gap-1 mb-2">
                                             {[...Array(5)].map((_, i) => (
                                                 <Star
                                                     key={i}
-                                                    className={`w-5 h-5 ${i < Math.floor(selectedProduct.rating) ? 'fill-emerald-500 text-emerald-500' : 'text-gray-300'}`}
+                                                    className={`w-5 h-5 ${i < Math.floor(selectedProduct.rating) ? 'fill-amber-500 text-amber-500' : 'text-gray-300'}`}
                                                 />
                                             ))}
                                         </div>
@@ -427,10 +425,10 @@ JazakAllah Khair!`;
 
 // Helper Components
 const AccordionSection = ({ title, isOpen, setIsOpen, icon, children }: any) => (
-    <div className="bg-white rounded-2xl shadow-lg border-2 border-emerald-100 overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-lg border-2 border-amber-100 overflow-hidden">
         <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-full p-6 flex items-center justify-between hover:bg-emerald-50 transition-colors"
+            className="w-full p-6 flex items-center justify-between hover:bg-amber-50 transition-colors"
         >
             <h2 className="text-xl sm:text-2xl font-black text-gray-900 flex items-center gap-3">
                 {icon}
@@ -473,25 +471,25 @@ const FAQItem = ({ question, answer }: any) => (
 
 // Loading Skeleton
 const LoadingSkeleton = () => (
-    <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/10 to-white">
-        <div className="border-b border-emerald-100 bg-gradient-to-r from-emerald-50/50 to-teal-50/50">
+    <div className="min-h-screen bg-gradient-to-b from-white via-amber-50/10 to-white">
+        <div className="border-b border-amber-100 bg-gradient-to-r from-amber-50/50 to-yellow-50/50">
             <div className="max-w-7xl mx-auto px-4 py-4">
-                <div className="h-4 w-96 bg-emerald-200 rounded animate-pulse"></div>
+                <div className="h-4 w-96 bg-amber-200 rounded animate-pulse"></div>
             </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 py-12">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-8">
-                    <div className="aspect-[16/10] bg-gradient-to-br from-emerald-100 to-teal-100 rounded-3xl animate-pulse"></div>
-                    <div className="bg-white rounded-2xl p-6 border-2 border-emerald-100">
-                        <div className="h-8 w-3/4 bg-emerald-200 rounded mb-4 animate-pulse"></div>
+                    <div className="aspect-[16/10] bg-gradient-to-br from-amber-100 to-yellow-100 rounded-3xl animate-pulse"></div>
+                    <div className="bg-white rounded-2xl p-6 border-2 border-amber-100">
+                        <div className="h-8 w-3/4 bg-amber-200 rounded mb-4 animate-pulse"></div>
                         <div className="h-4 w-1/2 bg-gray-200 rounded animate-pulse"></div>
                     </div>
                 </div>
                 <div className="lg:col-span-1">
-                    <div className="bg-white rounded-3xl p-8 border-2 border-emerald-200">
-                        <div className="h-12 w-32 bg-emerald-200 rounded mb-6 animate-pulse"></div>
-                        <div className="h-10 w-full bg-emerald-100 rounded mb-6 animate-pulse"></div>
+                    <div className="bg-white rounded-3xl p-8 border-2 border-amber-200">
+                        <div className="h-12 w-32 bg-amber-200 rounded mb-6 animate-pulse"></div>
+                        <div className="h-10 w-full bg-amber-100 rounded mb-6 animate-pulse"></div>
                         <div className="h-16 w-full bg-green-200 rounded animate-pulse"></div>
                     </div>
                 </div>
@@ -502,14 +500,14 @@ const LoadingSkeleton = () => (
 
 // Not Found State
 const NotFoundState = () => (
-    <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/10 to-white flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-b from-white via-amber-50/10 to-white flex items-center justify-center">
         <div className="text-center px-4">
-            <div className="text-8xl font-black text-emerald-200 mb-4">404</div>
+            <div className="text-8xl font-black text-amber-200 mb-4">404</div>
             <h1 className="text-3xl font-black text-gray-900 mb-4">Product Not Found</h1>
             <p className="text-gray-600 mb-8">The product you're looking for doesn't exist or has been removed.</p>
             <Link
                 to="/products"
-                className="inline-block px-8 py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                className="inline-block px-8 py-4 bg-gradient-to-r from-amber-500 via-yellow-600 to-amber-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
             >
                 Browse All Products
             </Link>

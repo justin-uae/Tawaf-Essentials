@@ -6,10 +6,6 @@ import { initializeAuth } from './slices/authSlice';
 import ScrollToTop from './helper/ScrollToTop';
 import { useAppDispatch } from './hooks/useRedux';
 import { WhatsAppButton } from './components/WhatsAppButton';
-import Screen2 from './pages/Screen2';
-import Screen3 from './pages/Screen3';
-import Screen4 from './pages/Screen4';
-import Screen5 from './pages/Screen5';
 
 const ExcursionsDubaiHero = lazy(() => import('./components/ExcursionsDubaiHero'));
 const Footer = lazy(() => import('./components/Footer'));
@@ -20,8 +16,8 @@ const FallbackPage = lazy(() => import('./components/FallBackPage'));
 const BookingsPage = lazy(() => import('./pages/BookingsPage'));
 const CartPage = lazy(() => import('./pages/CartPage'));
 const AboutPage = lazy(() => import('./pages/AboutUs'));
-// const ViewAllExcursion = lazy(() => import('./pages/ViewAllExcursion'))
-// const EBookPage = lazy(() => import('./pages/EBookPage'))
+const ViewAllExcursion = lazy(() => import('./pages/ViewAllExcursion'))
+const EBookPage = lazy(() => import('./pages/EBookPage'))
 const ProtectedRoute = lazy(() => import('./components/ProtectedRoute'));
 
 function App() {
@@ -40,14 +36,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<ExcursionsDubaiHero />} />
-          <Route path='/Screen2' element={<Screen2 />} />
-          <Route path='/Screen3' element={<Screen3 />} />
-          <Route path='/Screen4' element={<Screen4 />} />
-          <Route path='/Screen5' element={<Screen5 />} />
           <Route path='/contact' element={<ContactUsPage />} />
           <Route path='/about' element={<AboutPage />} />
-          {/* <Route path='/products' element={<ViewAllExcursion />} /> */}
-          {/* <Route path='/ebooks' element={<EBookPage />} /> */}
+          <Route path='/products' element={<ViewAllExcursion />} />
+          <Route path='/ebooks' element={<EBookPage />} />
           <Route path='/products/:id' element={<ItemDetailpage />} />
 
           <Route

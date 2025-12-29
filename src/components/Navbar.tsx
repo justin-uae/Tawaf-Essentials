@@ -17,7 +17,7 @@ export default function Navbar() {
     }, []);
 
     const handleWhatsAppClick = () => {
-        const phoneNumber = '+971545613397';
+        const phoneNumber = import.meta.env.VITE_CONTACT_NUMBER;
         const message = 'Hello! I would like to inquire about your Umrah products and services.';
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
@@ -29,71 +29,28 @@ export default function Navbar() {
             <nav className={`sticky top-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-xl' : 'shadow-md'
                 }`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between lg:justify-start h-20">
-                        {/* Mobile menu button - Left */}
-                        <div className="lg:hidden">
-                            <button
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                className="text-gray-700 hover:text-emerald-700 p-2"
-                                aria-label="mobile-menu-button"
-                            >
-                                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                            </button>
-                        </div>
-
-                        {/* Logo - Centered on mobile, left on desktop */}
-                        <Link to="/" className="flex items-center gap-2 sm:gap-3 group absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
-                            <div className="flex-shrink-0">
+                    <div className="flex items-center justify-between h-20 lg:h-24">
+                        {/* Logo with Text Below - FIXED */}
+                        <Link
+                            to="/"
+                            className="flex flex-col items-center group absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0"
+                        >
+                            <div className="flex-shrink-0 mb-1">
                                 <img
                                     loading='lazy'
-                                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 transform group-hover:scale-110 transition-transform duration-300"
+                                    className="w-25 h-25 sm:w-26 sm:h-26 lg:w-32 lg:h-32 transform group-hover:scale-110 transition-transform duration-300"
                                     src={Logo}
                                     alt="Tawaf Essentials Logo"
                                 />
                             </div>
-                            {/* <div className="flex flex-col">
-                                <span className="text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-800 bg-clip-text text-transparent leading-tight">
-                                    Tawaf Essentials
-                                </span>
-                                <span className="text-[10px] sm:text-xs text-gray-600 font-medium">
-                                    Your Spiritual Journey Partner
-                                </span>
-                            </div> */}
+                            {/* <span className="text-xs sm:text-sm lg:text-base text-gray-700 font-semibold leading-tight text-center tracking-tight whitespace-nowrap">
+                                Your Spiritual Journey Partner
+                            </span> */}
                         </Link>
 
-                        {/* Spacer for mobile to balance the layout */}
-                        <div className="lg:hidden w-10"></div>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center space-x-8 ml-auto">
-                            <Link
-                                to="/Screen2"
-                                className="text-gray-700 hover:text-emerald-700 font-semibold transition-colors relative group"
-                            >
-                                Screen 2
-                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-700 to-teal-700 group-hover:w-full transition-all duration-300"></span>
-                            </Link>
-                            <Link
-                                to="/Screen3"
-                                className="text-gray-700 hover:text-emerald-700 font-semibold transition-colors relative group"
-                            >
-                                Screen 3
-                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-700 to-teal-700 group-hover:w-full transition-all duration-300"></span>
-                            </Link>
-                            <Link
-                                to="/Screen4"
-                                className="text-gray-700 hover:text-emerald-700 font-semibold transition-colors relative group"
-                            >
-                                Screen 4
-                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-700 to-teal-700 group-hover:w-full transition-all duration-300"></span>
-                            </Link>
-                            <Link
-                                to="/Screen5"
-                                className="text-gray-700 hover:text-emerald-700 font-semibold transition-colors relative group"
-                            >
-                                Screen 5
-                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-700 to-teal-700 group-hover:w-full transition-all duration-300"></span>
-                            </Link>
+                        <div className="hidden lg:flex items-center space-x-8">
                             <Link
                                 to="/products"
                                 className="text-gray-700 hover:text-emerald-700 font-semibold transition-colors relative group"
@@ -134,40 +91,23 @@ export default function Navbar() {
                                 <span>Connect on WhatsApp</span>
                             </button>
                         </div>
+
+                        {/* Mobile menu button */}
+                        <div className="lg:hidden">
+                            <button
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                className="text-gray-700 hover:text-emerald-700 p-2"
+                                aria-label="mobile-menu-button"
+                            >
+                                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                            </button>
+                        </div>
                     </div>
 
                     {/* Mobile Navigation */}
                     {isMenuOpen && (
                         <div className="lg:hidden pb-4 border-t border-gray-100">
                             <div className="flex flex-col space-y-1 pt-4">
-                                <Link
-                                    to="/Screen2"
-                                    className="text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 font-semibold py-3 px-4 rounded-lg transition-colors"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Screen 2
-                                </Link>
-                                <Link
-                                    to="/Screen3"
-                                    className="text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 font-semibold py-3 px-4 rounded-lg transition-colors"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Screen 3
-                                </Link>
-                                <Link
-                                    to="/Screen4"
-                                    className="text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 font-semibold py-3 px-4 rounded-lg transition-colors"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Screen 4
-                                </Link>
-                                <Link
-                                    to="/Screen5"
-                                    className="text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 font-semibold py-3 px-4 rounded-lg transition-colors"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Screen 5
-                                </Link>
                                 <Link
                                     to="/products"
                                     className="text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 font-semibold py-3 px-4 rounded-lg transition-colors"

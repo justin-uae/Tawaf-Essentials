@@ -49,17 +49,17 @@ export default function WhyChooseUs() {
     ];
 
     return (
-        <div className="bg-gradient-to-b from-white via-emerald-50/20 to-white py-16 sm:py-20 md:py-24">
+        <div className="bg-gradient-to-b from-white via-amber-50/20 to-white py-16 sm:py-20 md:py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-12 sm:mb-14 md:mb-16">
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-100 to-teal-100 px-4 py-2 rounded-full mb-4 border border-emerald-200">
-                        <Sparkles className="w-4 h-4 text-emerald-700" />
-                        <span className="text-emerald-800 text-sm font-bold uppercase tracking-wider">Why Choose Us</span>
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-yellow-100 px-4 py-2 rounded-full mb-4 border border-amber-200">
+                        <Sparkles className="w-4 h-4 text-amber-700" />
+                        <span className="text-amber-800 text-sm font-bold uppercase tracking-wider">Why Choose Us</span>
                     </div>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-5">
                         Your Trusted Partner
-                        <span className="block bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-800 bg-clip-text text-transparent">
+                        <span className="block bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-700 bg-clip-text text-transparent">
                             For Sacred Journeys
                         </span>
                     </h2>
@@ -75,20 +75,20 @@ export default function WhyChooseUs() {
                         return (
                             <div
                                 key={index}
-                                className="group bg-white rounded-2xl p-6 sm:p-7 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center border-2 border-transparent hover:border-emerald-200 relative overflow-hidden"
+                                className="group bg-white rounded-2xl p-6 sm:p-7 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center border-2 border-transparent hover:border-amber-200 relative overflow-hidden"
                             >
                                 {/* Islamic pattern overlay */}
                                 <div className="absolute top-0 right-0 w-20 h-20 opacity-30 group-hover:opacity-50 transition-opacity">
-                                    <svg viewBox="0 0 100 100" className="w-full h-full text-emerald-100 fill-current">
+                                    <svg viewBox="0 0 100 100" className="w-full h-full text-amber-100 fill-current">
                                         <circle cx="50" cy="50" r="40" />
                                         <circle cx="50" cy="50" r="25" fill="white" />
                                     </svg>
                                 </div>
 
-                                <div className="relative bg-gradient-to-br from-emerald-600 via-teal-600 to-emerald-700 w-16 h-16 sm:w-18 sm:h-18 rounded-2xl flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <div className="relative bg-gradient-to-br from-amber-500 via-yellow-600 to-amber-600 w-16 h-16 sm:w-18 sm:h-18 rounded-2xl flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                                     <Icon className="w-8 h-8 sm:w-9 sm:h-9 text-white" />
                                 </div>
-                                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-emerald-800 transition-colors">
+                                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-amber-700 transition-colors">
                                     {feature.title}
                                 </h3>
                                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
@@ -100,10 +100,10 @@ export default function WhyChooseUs() {
                 </div>
 
                 {/* Stats Section */}
-                <div className="relative bg-gradient-to-br from-white to-emerald-50/50 rounded-3xl shadow-2xl p-8 sm:p-10 md:p-14 border-2 border-emerald-100 overflow-hidden">
+                <div className="relative bg-gradient-to-br from-white to-amber-50/50 rounded-3xl shadow-2xl p-8 sm:p-10 md:p-14 border-2 border-amber-100 overflow-hidden">
                     {/* Decorative Islamic pattern */}
                     <div className="absolute top-0 right-0 w-64 h-64 opacity-5">
-                        <svg viewBox="0 0 200 200" className="w-full h-full text-emerald-700 fill-current">
+                        <svg viewBox="0 0 200 200" className="w-full h-full text-amber-600 fill-current">
                             <circle cx="100" cy="100" r="80" />
                             <circle cx="100" cy="100" r="60" fill="white" />
                             <circle cx="100" cy="100" r="40" />
@@ -124,10 +124,10 @@ export default function WhyChooseUs() {
                                 const Icon = stat.icon;
                                 return (
                                     <div key={index} className="text-center group">
-                                        <div className="bg-gradient-to-br from-emerald-100 to-teal-100 w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-5 shadow-md group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border-2 border-emerald-200">
-                                            <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 text-emerald-700" />
+                                        <div className="bg-gradient-to-br from-amber-100 to-yellow-100 w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-5 shadow-md group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border-2 border-amber-200">
+                                            <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 text-amber-600" />
                                         </div>
-                                        <div className="text-3xl sm:text-4xl md:text-5xl font-black bg-gradient-to-r from-emerald-700 to-teal-700 bg-clip-text text-transparent mb-2">
+                                        <div className="text-3xl sm:text-4xl md:text-5xl font-black bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent mb-2">
                                             {stat.number}
                                         </div>
                                         <div className="text-xs sm:text-sm md:text-base text-gray-700 font-bold">
@@ -141,30 +141,30 @@ export default function WhyChooseUs() {
                 </div>
 
                 {/* CTA Banner with Islamic Theme */}
-                <div className="mt-12 sm:mt-16 md:mt-20 relative bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-800 rounded-3xl p-8 sm:p-10 md:p-14 text-center shadow-2xl overflow-hidden">
+                <div className="mt-12 sm:mt-16 md:mt-20 relative bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-8 sm:p-10 md:p-14 text-center shadow-2xl overflow-hidden">
                     {/* Islamic geometric pattern overlay */}
                     <div className="absolute inset-0 opacity-10">
                         <div className="absolute top-0 left-0 w-full h-full" style={{
-                            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px),
-                                            repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px)`
+                            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(251, 191, 36, 0.1) 10px, rgba(251, 191, 36, 0.1) 20px),
+                                            repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(251, 191, 36, 0.1) 10px, rgba(251, 191, 36, 0.1) 20px)`
                         }}></div>
                     </div>
 
                     <div className="relative">
-                        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4 border border-white/30">
-                            <BookOpen className="w-4 h-4 text-white" />
-                            <span className="text-white text-xs sm:text-sm font-bold uppercase tracking-wider">Begin Your Journey</span>
+                        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4 border border-amber-400/30">
+                            <BookOpen className="w-4 h-4 text-amber-400" />
+                            <span className="text-amber-300 text-xs sm:text-sm font-bold uppercase tracking-wider">Begin Your Journey</span>
                         </div>
 
                         <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 sm:mb-5 px-2 drop-shadow-lg">
                             Ready for Your Umrah?
                         </h3>
-                        <p className="text-base sm:text-lg md:text-xl text-white/95 mb-8 sm:mb-10 max-w-2xl mx-auto px-4 font-medium drop-shadow">
+                        <p className="text-base sm:text-lg md:text-xl text-amber-100 mb-8 sm:mb-10 max-w-2xl mx-auto px-4 font-medium drop-shadow">
                             Explore our comprehensive collection of Umrah guides, accessories, and spiritual resources to prepare for your blessed pilgrimage
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
                             <Link to={'/products'} className="w-full sm:w-auto">
-                                <button className="group w-full sm:w-auto bg-white text-emerald-800 hover:bg-gray-50 font-bold px-8 sm:px-10 py-4 text-base sm:text-lg rounded-full transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 flex items-center justify-center gap-2">
+                                <button className="group w-full sm:w-auto bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-white font-bold px-8 sm:px-10 py-4 text-base sm:text-lg rounded-full transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 flex items-center justify-center gap-2">
                                     <BookOpen className="w-5 h-5" />
                                     <span>Shop Now</span>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -172,7 +172,7 @@ export default function WhyChooseUs() {
                             </Link>
 
                             <Link to={'/ebooks'} className="w-full sm:w-auto">
-                                <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-emerald-800 font-bold px-8 sm:px-10 py-4 text-base sm:text-lg rounded-full transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                                <button className="w-full sm:w-auto bg-transparent border-2 border-amber-400 text-amber-300 hover:bg-amber-400 hover:text-gray-900 font-bold px-8 sm:px-10 py-4 text-base sm:text-lg rounded-full transition-all transform hover:scale-105 flex items-center justify-center gap-2">
                                     <BookOpen className="w-5 h-5" />
                                     <span>Browse E-Books</span>
                                 </button>
@@ -180,10 +180,10 @@ export default function WhyChooseUs() {
                         </div>
 
                         {/* Arabic calligraphy style decoration */}
-                        <div className="mt-8 flex items-center justify-center gap-4 text-white/60">
-                            <div className="w-16 h-0.5 bg-white/30"></div>
+                        <div className="mt-8 flex items-center justify-center gap-4 text-amber-400/60">
+                            <div className="w-16 h-0.5 bg-amber-400/30"></div>
                             <Sparkles className="w-5 h-5" />
-                            <div className="w-16 h-0.5 bg-white/30"></div>
+                            <div className="w-16 h-0.5 bg-amber-400/30"></div>
                         </div>
                     </div>
                 </div>
