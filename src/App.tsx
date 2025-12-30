@@ -6,6 +6,7 @@ import { initializeAuth } from './slices/authSlice';
 import ScrollToTop from './helper/ScrollToTop';
 import { useAppDispatch } from './hooks/useRedux';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import { fetchExchangeRates } from './slices/currencySlice';
 
 const ExcursionsDubaiHero = lazy(() => import('./components/ExcursionsDubaiHero'));
 const Footer = lazy(() => import('./components/Footer'));
@@ -24,6 +25,18 @@ function App() {
   useEffect(() => {
     // Initialize auth on app load
     dispatch(initializeAuth() as any);
+  }, [dispatch]);
+
+  useEffect(() => {
+    // Fetch exchange rates on app load
+    dispatch(fetchExchangeRates());
+
+    // Refresh rates every 1 hour
+    const interval = setInterval(() => {
+      dispatch(fetchExchangeRates());
+    }, 60 * 60 * 1000); // 1 hour
+
+    return () => clearInterval(interval);
   }, [dispatch]);
 
 

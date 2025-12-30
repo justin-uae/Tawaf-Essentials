@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import Logo from '../assets/Logo.png'
+import { CurrencySwitcher } from './CurrencySwitcher';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,6 +84,9 @@ export default function Navbar() {
 
                         {/* Right Side - WhatsApp Button */}
                         <div className="hidden lg:flex items-center gap-4">
+                            <div className="border-r border-gray-200 pr-4">
+                                <CurrencySwitcher />
+                            </div>
                             <button
                                 onClick={handleWhatsAppClick}
                                 className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold px-6 py-2.5 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
@@ -136,7 +140,12 @@ export default function Navbar() {
                                 >
                                     Contact
                                 </Link>
-
+                                <div className="border-t border-gray-100 pt-4 mt-4 px-4">
+                                    <p className="text-xs font-bold text-gray-700 uppercase mb-2">Currency</p>
+                                    <div onClick={(e) => e.stopPropagation()}>
+                                        <CurrencySwitcher />
+                                    </div>
+                                </div>
                                 <div className="border-t border-gray-100 pt-4 mt-4 px-4">
                                     <button
                                         onClick={() => {

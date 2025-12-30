@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, CheckCircle, Check, Sparkles, ChevronUp, ChevronDown, AlertCircle, HelpCircle, Award, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, CheckCircle, Check, Sparkles, ChevronUp, ChevronDown, AlertCircle, HelpCircle, Award, Star, Package } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useAppDispatch, useAppSelector } from '../hooks/useRedux';
 import { fetchProductById } from '../slices/productsSlice';
 import { BiCategory } from 'react-icons/bi';
+import { useCurrency } from '../hooks/useCurrency';
 
 export default function ProductDetailPage() {
     const { id } = useParams<{ id: string }>();
@@ -12,6 +13,7 @@ export default function ProductDetailPage() {
     const { selectedProduct, loading } = useAppSelector((state) => state.products);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [quantity, setQuantity] = useState(1);
+    const { formatPrice } = useCurrency();
 
     // Accordion states
     const [isOverviewOpen, setIsOverviewOpen] = useState(true);
@@ -44,9 +46,7 @@ export default function ProductDetailPage() {
         }
     };
 
-    const formatPrice = (price: number) => {
-        return `AED ${price.toFixed(2)}`;
-    };
+    const isBundle = selectedProduct?.category?.toLowerCase() === 'bundle';
 
     const handleWhatsAppInquiry = () => {
         if (!selectedProduct) return;
@@ -60,6 +60,7 @@ I'm interested in purchasing:
 
 📚 *${selectedProduct.title}*
 📂 Category: ${selectedProduct.category || 'General'}
+${isBundle ? 'Bundle Product - 10% Discount Applied!' : ''}
 
 *Product Details:*
 📦 Quantity: ${quantity}
@@ -111,6 +112,34 @@ JazakAllah Khair!`;
                     </div>
                 </div>
             </div>
+
+            {/* Bundle Discount Banner - Only show for bundle products */}
+            {isBundle && (
+                <div className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 py-2 sm:py-3 md:py-4 relative overflow-hidden">
+                    {/* Animated background pattern */}
+                    <div className="absolute inset-0 opacity-20">
+                        <div className="absolute inset-0" style={{
+                            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.1) 15px, rgba(255,255,255,0.1) 30px)`
+                        }}></div>
+                    </div>
+
+                    <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 relative z-10">
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 md:gap-3 text-white text-center">
+                            <div className="flex items-center gap-1.5 sm:gap-2">
+                                <Package className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 animate-bounce flex-shrink-0" />
+                                <span className="text-xs sm:text-sm md:text-base lg:text-lg font-black uppercase tracking-wide">
+                                    Bundle Deal:
+                                </span>
+                            </div>
+                            <span className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">
+                                <span className="hidden md:inline">Save 10% on All Items in This Package!</span>
+                                <span className="hidden sm:inline md:hidden">Save 10% on Bundle Package!</span>
+                                <span className="sm:hidden">Save 10% on All Items in This Package!</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-12">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
@@ -178,12 +207,20 @@ JazakAllah Khair!`;
                         <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-amber-100">
                             <div className="flex items-start justify-between mb-4 gap-3">
                                 <div className="flex-1 min-w-0">
-                                    {selectedProduct.rating > 4.5 && (
-                                        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-yellow-100 px-3 py-1.5 rounded-full mb-3">
-                                            <Sparkles className="w-4 h-4 text-amber-700" />
-                                            <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">Bestseller</span>
-                                        </div>
-                                    )}
+                                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                                        {selectedProduct.rating > 4.5 && (
+                                            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-yellow-100 px-3 py-1.5 rounded-full">
+                                                <Sparkles className="w-4 h-4 text-amber-700" />
+                                                <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">Bestseller</span>
+                                            </div>
+                                        )}
+                                        {isBundle && (
+                                            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-100 to-emerald-100 px-3 py-1.5 rounded-full border-2 border-green-300">
+                                                <Package className="w-4 h-4 text-green-700" />
+                                                <span className="text-xs font-bold text-green-800 uppercase tracking-wider">Bundle Deal</span>
+                                            </div>
+                                        )}
+                                    </div>
                                     <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3 sm:mb-4">
                                         {selectedProduct.title}
                                     </h1>
@@ -208,6 +245,20 @@ JazakAllah Khair!`;
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Bundle Savings Info Card */}
+                            {isBundle && (
+                                <div className="mt-3 sm:mt-4 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-3 sm:p-4">
+                                    <div className="flex items-start gap-2 sm:gap-3">
+                                        <div className="flex-1 min-w-0">
+                                            <h4 className="font-black text-green-900 mb-0.5 sm:mb-1 text-sm sm:text-base">Special Bundle Savings!</h4>
+                                            <p className="text-xs sm:text-sm text-green-800 font-semibold leading-relaxed">
+                                                Get 10% off when you order all products in this bundle together. Save money and get everything you need in one package!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                         {/* Overview - Accordion */}
@@ -280,6 +331,12 @@ JazakAllah Khair!`;
                                 title="Customer Support"
                                 description="24/7 support available via WhatsApp for any questions or assistance."
                             />
+                            {isBundle && (
+                                <InfoItem
+                                    title="Bundle Discount"
+                                    description="This is a bundle product - you automatically get 10% off when ordering all items together!"
+                                />
+                            )}
                         </AccordionSection>
 
                         {/* Why Buy */}
@@ -324,6 +381,12 @@ JazakAllah Khair!`;
                                 question="How long does delivery take?"
                                 answer="Delivery times vary based on your location. Contact us via WhatsApp for specific delivery estimates for your area."
                             />
+                            {isBundle && (
+                                <FAQItem
+                                    question="How does the bundle discount work?"
+                                    answer="When you purchase this bundle, you automatically receive 10% off the total price compared to buying each item separately. The discount is already applied to the bundle price shown."
+                                />
+                            )}
                         </AccordionSection>
                     </div>
 
@@ -331,6 +394,16 @@ JazakAllah Khair!`;
                     <div className="lg:col-span-1">
                         <div className="sticky top-4 sm:top-8">
                             <div className="bg-white border-2 border-amber-200 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                                {/* Bundle Badge at top */}
+                                {isBundle && (
+                                    <div className="mb-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-3 rounded-xl text-center">
+                                        <div className="flex items-center justify-center gap-2 mb-1">
+                                            <span className="font-black text-sm uppercase tracking-wider">Bundle Deal Active</span>
+                                        </div>
+                                        <p className="text-xs font-semibold">10% Discount Applied!</p>
+                                    </div>
+                                )}
+
                                 {/* Price */}
                                 <div className="mb-6">
                                     {selectedProduct.price && (
@@ -338,11 +411,19 @@ JazakAllah Khair!`;
                                             <span className="text-sm text-gray-500 line-through font-medium">
                                                 {formatPrice(selectedProduct.price + 50)}
                                             </span>
+                                            {isBundle && (
+                                                <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                                    -10%
+                                                </span>
+                                            )}
                                         </div>
                                     )}
                                     <div className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">
                                         {formatPrice(selectedProduct.price)}
                                     </div>
+                                    {isBundle && (
+                                        <p className="text-xs text-green-600 font-bold mt-1">Bundle discount already included!</p>
+                                    )}
                                 </div>
 
                                 {/* Quantity */}

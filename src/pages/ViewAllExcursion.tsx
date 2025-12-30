@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Search, SlidersHorizontal, X, BookOpen, Sparkles, Filter, Package } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../hooks/useRedux';
 import { fetchAllProducts } from '../slices/productsSlice';
+import { useCurrency } from '../hooks/useCurrency';
 
 const ViewAllProducts = () => {
     const navigate = useNavigate();
@@ -18,6 +19,7 @@ const ViewAllProducts = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(categoryFromQuery);
     const [sortBy, setSortBy] = useState('rating');
+    const { formatPrice } = useCurrency();
 
     useEffect(() => {
         if (products.length === 0) {
@@ -75,10 +77,6 @@ const ViewAllProducts = () => {
         if (searchQuery) count++;
         if (selectedCategory) count++;
         return count;
-    };
-
-    const formatPrice = (price: number) => {
-        return `AED ${price.toFixed(2)}`;
     };
 
     const goToDetail = (productId: string) => {

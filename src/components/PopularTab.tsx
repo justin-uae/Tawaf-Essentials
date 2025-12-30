@@ -3,6 +3,7 @@ import { Star, ChevronLeft, ChevronRight, BookOpen, Sparkles, ShoppingBag } from
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks/useRedux';
 import { fetchAllProducts } from '../slices/productsSlice';
+import { useCurrency } from '../hooks/useCurrency';
 
 export default function PopularProducts() {
     const navigate = useNavigate();
@@ -10,6 +11,7 @@ export default function PopularProducts() {
     const scrollRef = useRef<HTMLDivElement>(null);
 
     const { products, loading } = useAppSelector((state) => state.products);
+    const { formatPrice } = useCurrency();
 
     // Fetch products on mount
     useEffect(() => {
@@ -37,9 +39,6 @@ export default function PopularProducts() {
         }
     };
 
-    const formatPrice = (price: number) => {
-        return `AED ${price.toFixed(2)}`;
-    };
 
     if (loading) {
         return <LoadingSkeleton />;
@@ -117,7 +116,7 @@ export default function PopularProducts() {
                                         <div className="flex flex-col">
                                             {/* Original (Strikethrough) Price */}
                                             <span className="text-[10px] sm:text-xs text-gray-500 line-through leading-tight">
-                                                {product.price + 50}
+                                                {formatPrice(product.price + 50)}
                                             </span>
                                             {/* Current Price */}
                                             <div className="flex items-baseline gap-1">

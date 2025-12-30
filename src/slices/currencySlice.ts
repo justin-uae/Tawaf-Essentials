@@ -10,18 +10,18 @@ interface Currency {
 
 // Static currency info (symbols, names, flags)
 const currencyInfo: Omit<Currency, 'rate'>[] = [
+    { code: 'GBP', symbol: '£', name: 'British Pound', flag: '🇬🇧' },
     { code: 'AED', symbol: 'AED', name: 'UAE Dirham', flag: '🇦🇪' },
     { code: 'USD', symbol: '$', name: 'US Dollar', flag: '🇺🇸' },
     { code: 'EUR', symbol: '€', name: 'Euro', flag: '🇪🇺' },
-    { code: 'GBP', symbol: '£', name: 'British Pound', flag: '🇬🇧' },
 ];
 
 // Fallback rates in case API fails
 const fallbackRates: Record<string, number> = {
+    'GBP': 0.21,
     'AED': 1,
     'USD': 0.27,
     'EUR': 0.25,
-    'GBP': 0.21,
 };
 
 interface CurrencyState {

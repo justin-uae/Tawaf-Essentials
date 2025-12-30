@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, BookOpen, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, BookOpen, Sparkles, Package } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../hooks/useRedux';
 import { fetchCollectionsWithProducts } from '../slices/productsSlice';
 import { useNavigate } from 'react-router-dom';
@@ -245,6 +245,30 @@ export default function HomepageBanner() {
                                 )}
                             </div>
                         )}
+                    </div>
+                </div>
+                <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 py-2 sm:py-3 relative overflow-hidden">
+                    {/* Animated background pattern */}
+                    <div className="absolute inset-0 opacity-20">
+                        <div className="absolute inset-0" style={{
+                            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.1) 15px, rgba(255,255,255,0.1) 30px)`
+                        }}></div>
+                    </div>
+                    <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 relative z-10">
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 md:gap-3 text-white text-center">
+                            <div className="flex items-center gap-1.5 sm:gap-2">
+                                <Package className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 animate-bounce flex-shrink-0" />
+                                <span className="text-xs sm:text-sm md:text-base lg:text-lg font-black uppercase tracking-wide">
+                                    <span className="hidden sm:inline">Special Bundle Offer:</span>
+                                    <span className="sm:hidden">Bundle Deal:</span>
+                                </span>
+                            </div>
+                            <span className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">
+                                <span className="hidden md:inline">Get 10% Off When You Order Complete Umrah Bundle!</span>
+                                <span className="hidden sm:inline md:hidden">10% Off on Complete Bundle Orders!</span>
+                                <span className="sm:hidden">10% Off on Bundle Orders!</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
