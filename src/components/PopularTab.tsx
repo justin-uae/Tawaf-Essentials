@@ -116,7 +116,7 @@ export default function PopularProducts() {
                                         <div className="flex flex-col">
                                             {/* Original (Strikethrough) Price */}
                                             <span className="text-[10px] sm:text-xs text-gray-500 line-through leading-tight">
-                                                {formatPrice(product.price + 50)}
+                                                {formatPrice(product.price + 10)}
                                             </span>
                                             {/* Current Price */}
                                             <div className="flex items-baseline gap-1">

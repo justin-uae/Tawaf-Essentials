@@ -3,11 +3,15 @@ import { useAppSelector } from './useRedux';
 export function useCurrency() {
     const { selectedCurrency } = useAppSelector((state) => state.currency);
 
-    // Convert AED price to selected currency and format
-    const formatPrice = (priceInAED: number): string => {
-        const convertedPrice = priceInAED * selectedCurrency.rate;
+    // Convert GBP price to selected currency and format
+    const formatPrice = (priceInGBP: number): string => {
+        const convertedPrice = priceInGBP * selectedCurrency.rate;
 
         // Format based on currency
+        if (selectedCurrency.code === 'GBP') {
+            return `£${convertedPrice.toFixed(2)}`;
+        }
+
         if (selectedCurrency.code === 'AED') {
             return `AED ${convertedPrice.toFixed(2)}`;
         }
@@ -16,8 +20,8 @@ export function useCurrency() {
     };
 
     // Get converted price as number (useful for calculations)
-    const convertPrice = (priceInAED: number): number => {
-        return priceInAED * selectedCurrency.rate;
+    const convertPrice = (priceInGBP: number): number => {
+        return priceInGBP * selectedCurrency.rate;
     };
 
     return {

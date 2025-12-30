@@ -409,7 +409,7 @@ JazakAllah Khair!`;
                                     {selectedProduct.price && (
                                         <div className="flex items-center gap-3 mb-2">
                                             <span className="text-sm text-gray-500 line-through font-medium">
-                                                {formatPrice(selectedProduct.price + 50)}
+                                                {formatPrice(selectedProduct.price + 10)}
                                             </span>
                                             {isBundle && (
                                                 <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">

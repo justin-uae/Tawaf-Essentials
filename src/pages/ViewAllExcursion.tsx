@@ -398,7 +398,7 @@ const ProductCard = ({ product, goToDetail, formatPrice }: any) => (
             <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm rounded-xl px-3 py-2 shadow-xl border border-amber-100 z-10">
                 <div className="flex flex-col">
                     <span className="text-xs text-gray-500 line-through leading-tight">
-                        {formatPrice(product.price + 50)}
+                        {formatPrice(product.price + 10)}
                     </span>
                     <span className="text-lg font-black bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent leading-tight">
                         {formatPrice(product.price)}

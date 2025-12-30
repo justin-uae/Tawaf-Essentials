@@ -16,12 +16,12 @@ const currencyInfo: Omit<Currency, 'rate'>[] = [
     { code: 'EUR', symbol: '€', name: 'Euro', flag: '🇪🇺' },
 ];
 
-// Fallback rates in case API fails
+// Fallback rates in case API fails (base: GBP = 1)
 const fallbackRates: Record<string, number> = {
-    'GBP': 0.21,
-    'AED': 1,
-    'USD': 0.27,
-    'EUR': 0.25,
+    'GBP': 1,
+    'AED': 4.76,
+    'USD': 1.27,
+    'EUR': 1.20,
 };
 
 interface CurrencyState {
@@ -37,8 +37,8 @@ export const fetchExchangeRates = createAsyncThunk(
     'currency/fetchExchangeRates',
     async (_, { rejectWithValue }) => {
         try {
-            // Using ExchangeRate-API (free tier: 1,500 requests/month)
-            const response = await fetch('https://api.exchangerate-api.com/v4/latest/AED');
+            // Using ExchangeRate-API with GBP as base currency
+            const response = await fetch('https://api.exchangerate-api.com/v4/latest/GBP');
 
             if (!response.ok) {
                 throw new Error('Failed to fetch exchange rates');
@@ -49,7 +49,7 @@ export const fetchExchangeRates = createAsyncThunk(
             // Transform API response to our currency format
             const currencies: Currency[] = currencyInfo.map(info => ({
                 ...info,
-                rate: info.code === 'AED' ? 1 : (data.rates[info.code] || fallbackRates[info.code]),
+                rate: info.code === 'GBP' ? 1 : (data.rates[info.code] || fallbackRates[info.code]),
             }));
 
             return {
@@ -74,7 +74,7 @@ const getInitialCurrency = (): Currency => {
         const found = defaultCurrencies.find(c => c.code === savedCurrency);
         if (found) return found;
     }
-    return defaultCurrencies[0]; // Default to AED
+    return defaultCurrencies[0]; // Default to GBP
 };
 
 const initialState: CurrencyState = {
