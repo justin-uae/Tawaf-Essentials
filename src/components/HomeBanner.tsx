@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight, BookOpen, Sparkles, Package } from 'lucide-r
 import { useAppDispatch, useAppSelector } from '../hooks/useRedux';
 import { fetchCollectionsWithProducts } from '../slices/productsSlice';
 import { useNavigate } from 'react-router-dom';
-import Banner from '../assets/Banner.png'
+import Banner2 from '../assets/Banner2.png'
 
 export default function HomepageBanner() {
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -153,7 +153,7 @@ export default function HomepageBanner() {
 
                                 <div className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl relative z-10">
                                     <img
-                                        src={Banner}
+                                        src={Banner2}
                                         alt="Umrah Journey"
                                         className="w-full h-auto object-contain drop-shadow-lg"
                                     />

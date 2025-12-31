@@ -264,9 +264,9 @@ function ContactForm() {
                                     </div>
                                     <div className="min-w-0">
                                         <h3 className="font-black text-base text-gray-900 mb-1">Address</h3>
-                                        <p className="text-sm text-gray-700 font-medium">105 Hibson Rd,
+                                        <p className="text-sm text-gray-700 font-medium">136 Beaufort Street,
                                             Nelson, </p>
-                                        <p className="text-sm text-gray-700 font-medium">Lancashire, BB9 0AU</p>
+                                        <p className="text-sm text-gray-700 font-medium">Lancashire BB9 0RL</p>
                                     </div>
                                 </div>
 
@@ -285,14 +285,14 @@ function ContactForm() {
                         {/* add proper address in map when it is provided */}
                         <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-100 h-72 sm:h-80">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2802.3397729599524!2d-2.2201697228067587!3d53.830390372433605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b911480dadc99%3A0xc51917baa9b047a7!2s105%20Hibson%20Rd%2C%20Nelson%20BB9%200AU%2C%20UK!5e1!3m2!1sen!2sae!4v1766839344064!5m2!1sen!2sae"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2802.4403584663214!2d-2.2135648228068567!3d53.82888687243319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b916b0bfced69%3A0xe7c854eb5da17807!2s136%20Beaufort%20St%2C%20Nelson%20BB9%200RL%2C%20UK!5e1!3m2!1sen!2sae!4v1767170259447!5m2!1sen!2sae"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
                                 allowFullScreen
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
-                                title="105 Hibson Rd, Nelson BB9 0AU, UK"
+                                title="136 Beaufort Street, Nelson, Lancashire BB9 0RL"
                             />
                         </div>
                     </div>

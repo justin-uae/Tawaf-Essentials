@@ -49,7 +49,7 @@ export default function Footer() {
                 <div className="bg-gradient-to-br from-amber-500 to-yellow-600 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
                   <MapPin className="w-4 h-4 text-white flex-shrink-0" />
                 </div>
-                <span className="text-sm text-center md:text-left font-medium">105 Hibson Rd,Nelson, Lancashire, BB9 0AU</span>
+                <span className="text-sm text-center md:text-left font-medium">136 Beaufort Street nelson Lancashire BB9 0RL</span>
               </div>
               <div className="flex items-center gap-2 group">
                 <div className="bg-gradient-to-br from-amber-500 to-yellow-600 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
