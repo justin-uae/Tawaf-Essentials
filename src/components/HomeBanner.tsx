@@ -142,7 +142,7 @@ export default function HomepageBanner() {
                             </div>
 
                             {/* Right side - Vector image */}
-                            <div className="w-full lg:w-[55%] flex justify-center lg:justify-end relative">
+                            <div className="w-full lg:w-[43%] flex justify-center lg:justify-end relative">
                                 {/* Subtle decorative element behind image */}
                                 <div className="absolute inset-0 flex items-center justify-center opacity-10">
                                     <svg className="w-full h-full text-yellow-600" viewBox="0 0 200 200">
